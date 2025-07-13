@@ -14,6 +14,11 @@ return [
     |
     */
 
+    'hub' => [
+        'url' => env('HUB_API_URL'),
+        'client_id' => env('HUB_CLIENT_ID'),
+        'client_secret' => env('HUB_CLIENT_SECRET'),
+    ],
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

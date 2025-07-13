@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id(); // id: unsignedBigInteger, Primary Key, Auto-increment
+            $table->bigInteger('hub_product_id')->nullable(); // Pindahkan ini ke sini jika ingin setelah ID
             $table->string('name', 255); // name: string(255), required
             $table->string('slug', 255)->unique(); // slug: string(255), unique
             $table->text('description')->nullable(); // description: text, nullable
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_category_id')->nullable(); // product_category_id: unsignedBigInteger, nullable
             $table->string('image_url', 255)->nullable(); // image_url: string(255), nullable
             $table->boolean('is_active')->default(true); // is_active: boolean, default true
+            $table->boolean('is_visible')->default(true); // Pindahkan dan hapus ->after('is_active')
             $table->timestamps(); // created_at & updated_at
 
             // Foreign Key Constraint
@@ -38,5 +40,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('products');
+        // Schema::dropColumn(['hub_product_id', 'is_visible']); // Baris ini tidak diperlukan di down() jika Anda drop seluruh tabel
     }
 };

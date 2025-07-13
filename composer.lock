@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f05e83a2c70c90244d70956d161d2a88",
+    "content-hash": "afe5e63447e4963915cde8bef67c9bc5",
     "packages": [
         {
             "name": "binafy/laravel-cart",
